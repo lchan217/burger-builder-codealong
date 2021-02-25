@@ -1,0 +1,31 @@
+Component Tree
+
+App 
+Layout
+  Toolbar
+    Drawer Toggle 
+    Logo
+    Navigation Items
+  Side Drawer 
+    Also logo & navigation items?
+  Backdrop
+  {props.children}
+    Burger Builder - STATEFUL
+      Build Controls
+        Build Control
+        Build Control
+        Build Control
+        ...
+        Order Button
+      Burger
+        Ingredient
+        Ingredient
+        Ingredient
+        ...
+      Modal (checkout review)
+        {props.children} (so it can be reusable)
+
+State
+- ingredients - { meat: 1, cheese: 2 }
+- bought or not - purchased: true 
+- total price - price: 5.00
