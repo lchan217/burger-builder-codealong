@@ -1,0 +1,3 @@
+// BurgerBuilder.js
+export const ADD_INGREDEINT = 'ADD_INGREDEINT'
+export const DELETE_INGREDEINT = 'DELETE_INGREDEINT'
