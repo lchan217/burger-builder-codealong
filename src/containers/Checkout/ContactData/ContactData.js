@@ -156,12 +156,23 @@ class ContactData extends Component {
 
     render () {
         const formElementsArray = [];
+        // converts state into formElementsArray - for example here is name:
+        // config:
+        // elementConfig: {type: "text", placeholder: "Your Name"}
+        // elementType: "input"
+        // touched: false
+        // valid: false
+        // validation: {required: true}
+        // value: ""
+        // __proto__: Object
+        // id: "name"
         for (let key in this.state.orderForm) {
             formElementsArray.push({
                 id: key,
                 config: this.state.orderForm[key]
             });
         }
+
         let form = (
             <form onSubmit={this.orderHandler}>
                 {formElementsArray.map(formElement => (
