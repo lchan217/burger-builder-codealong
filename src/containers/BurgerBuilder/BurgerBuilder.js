@@ -18,13 +18,7 @@ class BurgerBuilder extends Component {
   }
 
   componentDidMount () {
-        // axios.get('https://react-my-burger-a4314-default-rtdb.firebaseio.com/ingredients.json')
-        // .then(response => {
-        //     this.setState({ ingredients: response.data })
-        // })
-        // .catch(error => {
-        //     this.setState({ error: true })
-        // })
+
   }
 
   updatePurchaseState(ingredients) {
@@ -147,10 +141,6 @@ class BurgerBuilder extends Component {
             price={this.props.price.toFixed(2)} />
     }
 
-    if(this.state.loading){
-        orderSummary = <Spinner />
-    }
-
     return (
       <Aux>
         <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
@@ -172,7 +162,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onIngredientAdded: (ingName) => dispatch(burgerBuilderActions.addIngredient(ingName)),
-        onIngredientDeleted: ingName => dispatch(burgerBuilderActions.deleteIngredient(ingName))
+        onIngredientDeleted: ingName => dispatch(burgerBuilderActions.deleteIngredient(ingName)),
+ 
     }
 }
 
