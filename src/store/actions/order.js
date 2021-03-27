@@ -30,7 +30,7 @@ export const purchaseBurger = (orderData) => {
         .then( response => {
             // this.props.history.push( '/' ); - no access to router here
             console.log(response.data)
-            dispatch(purchaseBurgerSuccess(response.data, orderData))
+            dispatch(purchaseBurgerSuccess(response.data.name, orderData))
         } )
         .catch( error => {
             dispatch(purchaseBurgerFail(error))
