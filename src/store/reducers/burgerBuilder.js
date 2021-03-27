@@ -41,7 +41,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 ingredients: action.ingredients,
-                error: false // clear out if it was set to true before
+                error: false, // clear out if it was set to true before
+                totalPrice: 4
             }
         case actionTypes.FETCH_INGREDIENTS_FAILED:
             return {
