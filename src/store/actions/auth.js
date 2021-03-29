@@ -21,7 +21,7 @@ export const authFail = (error) => {
     }
 }
 
-export const auth = (email, password) => {
+export const auth = (email, password, isSignUp) => {
     return dispatch => {
         // authenticate user
         // https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY] - comes from googling firebase
@@ -31,8 +31,11 @@ export const auth = (email, password) => {
             password: password,
             returnSecureToken: true
         }
-
-        axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDr6wC1ZLf4o-GL47mShLIrY6NiqXqX8tI', authData)
+        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDr6wC1ZLf4o-GL47mShLIrY6NiqXqX8tI'
+        if(!isSignUp){
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDr6wC1ZLf4o-GL47mShLIrY6NiqXqX8tI'
+        }
+        axios.post(url, authData)
         
             .then(response => {
                 console.log(response.data)
