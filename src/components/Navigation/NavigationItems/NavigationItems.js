@@ -7,8 +7,13 @@ const navigationItems = (props) => (
     {/* active is a boolean prop - do not need to pass like active={true} */}
     <NavigationItem link="/" exact>Burger Builder</NavigationItem>
     <NavigationItem link="/orders">Orders</NavigationItem>
-    <NavigationItem link="/auth">Authenicate</NavigationItem>
+    {props.isAuthenticated 
+        ? <NavigationItem link="/logout">Log Out</NavigationItem> 
+        : <NavigationItem link="/auth">Authenticate</NavigationItem>}
+    
   </ul>
 )
+
+// notice we're not connecting to store here because this is a dumb component
 
 export default navigationItems;
