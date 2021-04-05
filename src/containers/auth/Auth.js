@@ -45,7 +45,7 @@ class Auth extends Component {
 
     componentDidMount(){
         if(!this.props.buildingBurger && this.props.authRedirectPath !== '/'){
-            this.props.RedirectPath()
+            this.props.redirectPath()
         }
     }
 
@@ -167,7 +167,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: (email, password, isSignUp) => dispatch(actions.auth(email, password, isSignUp)),
-        RedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
+        redirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
     }
 }
 
